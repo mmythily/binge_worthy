@@ -1,10 +1,18 @@
-
+'use strict';
 
 let userInput = 'harry+potter';
 let url = 'https://www.googleapis.com/books/v1/volumes?q=' + userInput + '&printType=books';
 
-request({
-  url: url
-}, function (error, response, body) {
-  console.log(body)
+$.ajax({
+  type: "GET",
+  dataType: "json",
+  url: url,
+  success: function (data) {
+    let jsonResult = $.parseJSON(data); 
+    console.log(jsonResult)
+  },
+  error: function (data) {
+    let jsonResult = $.parseJSON(data);
+    console.log('error: ', jsonResult);
+  }
 });
