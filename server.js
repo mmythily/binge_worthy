@@ -48,6 +48,10 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/my-list", (req, res) => {
+  res.render("my-list");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
