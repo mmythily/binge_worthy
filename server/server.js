@@ -54,6 +54,14 @@ app.get("/my-list", (req, res) => {
   res.render("my-list");
 });
 
+// userInput
+app.post("/my-list", (req, res) => {
+  let userInput = req.body.userInput
+  console.log(userInput);
+  ;  
+  res.render("my-list");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

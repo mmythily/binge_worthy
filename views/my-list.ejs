@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/newItem.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
 
 <body>
     <h1>Smart Categorizr</h1>
@@ -17,7 +20,11 @@
 
         <!-- Search form -->
         <div class="active-pink-3 active-pink-4 mb-4">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          <h3>Add a ToDo:</h3>
+          <form id="formToDo" action="/my-list" method="POST">
+            <textarea id="addToDo-text" name="text" placeholder="Add a new ToDo..."></textarea>
+            <input type="submit" form="formToDo" value="Add">
+          </form>
         </div>
         
 
