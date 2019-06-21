@@ -21,6 +21,7 @@
     "knex-logger": "^0.1.0",
     "morgan": "^1.7.0",
     "node-sass-middleware": "^0.9.8",
+    "omdbapi": "^3.0.0",
     "pg": "^6.0.2",
     "yelp-fusion": "^3.0.0"
   },
