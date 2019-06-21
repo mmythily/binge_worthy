@@ -6,7 +6,6 @@ module.exports = {
 returnName: omdb.search({
             search: name
         }).then(res => {
-            
             console.log(res[0].title);
         }).catch(console.error)
 }
