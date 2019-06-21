@@ -9,7 +9,7 @@ const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
 
-const knexConfig  = require("./knexfile");
+const knexConfig  = require("../knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
@@ -27,7 +27,7 @@ app.use(knexLogger(knex));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/styles", sass({
+app.use("../styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
   debug: true,
@@ -48,6 +48,8 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+
+// Get main page
 app.get("/my-list", (req, res) => {
   res.render("my-list");
 });
