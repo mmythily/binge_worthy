@@ -56,7 +56,9 @@ app.get("/my-list", (req, res) => {
 
 // userInput
 app.post("/my-list", (req, res) => {
-  let userInput = req.body.text;  
+  let userInput = req.body.userInput
+  console.log(userInput);
+  ;  
   res.render("my-list");
 });
 
