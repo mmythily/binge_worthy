@@ -6,7 +6,7 @@ const stringSimilarity = require('string-similarity');
 
 module.exports = {
 
-  yelpQuery: (userListInput) => {
+  yelpQuery: (userListInput, callback) => {
 
     const apiKey = "McPYM7tNIHxSF-p102HlAmcK_pAeyNd1rfpwXzJsT1iJ2OCTdggb_6leU1-sV1Kg3P-DYlpy_uzRcfmDf1BJ0h8Ase8Z4PMsUnKUeIC8jtgUg4zAG2tFTmFLj68LXXYx";
 
@@ -46,11 +46,11 @@ module.exports = {
       switch(true) {
         case (userInputCompare > 0.60):
           console.log(true);
-          return {compareRating: userInputCompare, checkValue: true};
+          callback( {compareRating: userInputCompare, checkValue: true} );
           break;
         default:
           console.log(false);
-          return {compareRating: userInputCompare, checkValue: false};
+          callback( {compareRating: userInputCompare, checkValue: false} );
       }
 
     }).catch(e => {
