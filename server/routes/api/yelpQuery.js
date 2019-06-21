@@ -46,7 +46,7 @@ module.exports = {
       switch(true) {
         case (userInputCompare > 0.60):
           console.log(true);
-          callback( {compareRating: userInputCompare, checkValue: true} );
+          callback( {compareRating: userInputCompare, checkValue: true, returnName: returnBody.name} );
           break;
         default:
           console.log(false);
