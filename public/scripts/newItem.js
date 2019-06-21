@@ -1,3 +1,3 @@
 function renderList(str) {
-  console.log('renderList');
+  console.log(str);
 }

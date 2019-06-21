@@ -1,7 +1,5 @@
 /* Client-side logic */
-'use strict';
-$(document).ready(() => {
-
+$(() => {
   $.ajax({
     method: "GET",
     url: "/api/users"
@@ -10,9 +8,10 @@ $(document).ready(() => {
       $("<div>").text(user.name).appendTo($("body"));
     }
   });
+});
 
-
-  $('#addToDo').submit(ev => {
+$(document).ready(() => {
+  $('#formToDo').submit(ev => {
     ev.preventDefault();
     let newItem = $('#addToDo-text').val();
     $.ajax({
@@ -21,14 +20,13 @@ $(document).ready(() => {
       data: {
         userInput: newItem
       },
-      success: (event) => {
-        console.log(event);
-        
-        renderList(event);
-        $('#addToDo').trigger('reset');
+      success: () => {
+        renderList(newItem);
+        $('#formToDo').trigger('reset');
       }
     });
   });
-
-
 });
+
+
+
