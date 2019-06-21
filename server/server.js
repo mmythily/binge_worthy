@@ -49,7 +49,7 @@ app.get("/login", (req, res) => {
 });
 
 
-// Login page
+// Get main page
 app.get("/my-list", (req, res) => {
   res.render("my-list");
 });

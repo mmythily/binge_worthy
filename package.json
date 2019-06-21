@@ -5,9 +5,16 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
+    "start": "node server.js",
+    "local": "./node_modules/.bin/nodemon --ignore public/",
+    "knex": "./node_modules/.bin/knex",
+    "scss": "node-sass --watch styles -o public/styles"
+=======
     "start": "node server/server.js",
     "local": "./node_modules/.bin/nodemon --watch server -e js server/server.js",
     "knex": "./node_modules/.bin/knex"
+>>>>>>> ebcd4b411ba0da8115d029a84e5638575a5eb41b
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
@@ -20,7 +27,8 @@
     "knex-logger": "^0.1.0",
     "morgan": "^1.7.0",
     "node-sass-middleware": "^0.9.8",
-    "pg": "^6.0.2"
+    "pg": "^6.0.2",
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"

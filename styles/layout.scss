@@ -1,7 +1,38 @@
-body {
-  background-color: #EEE;
+/* The Search Form */
+.active-pink-4 input[type=text]{
+  border: 1px solid #f48fb1;
+  box-shadow: 0 0 0 1px #f48fb1;
+  height: 100px;
+  font-size: 2em;
+}
+/* The 4 main columns */
+.container-fluid{
+  border: 1px;
+}
+.col-sm {
+  height: 700px;
+  margin: 3px;
+  border-radius: 15px;
+}
+#to-watch {
+  background-color: #ffbebc;
+}
+#to-read {
+  background-color: #ace7ff;
+}
+#to-eat {
+  background-color: #dcd3ff;
+}
+#to-buy {
+  background-color: #97a2ff;
+}
 
-  h1 {
-    color: #244751;
-  }
+/* Cards in a row */
+.card {
+  height: 100px;
+  word-wrap: none;
+  position: inherit;
+  display: block;
+  padding: 8px 10px;
+  margin: 5px;
 }
