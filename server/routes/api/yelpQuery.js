@@ -23,12 +23,12 @@ module.exports = {
       //const prettyJson = JSON.stringify(firstResult, null, 4);
       //let returnBody = JSON.parse(prettyJson);
       let returnBody = firstResult;
-      // console.log('RETURN BODY: ', returnBody);
+      //console.log('RETURN BODY: ', returnBody);
       // console.log(typeof returnBody);
 
       // Determine if yelp request has found a matched restaurant;
       if (typeof returnBody === 'undefined' || !returnBody.hasOwnProperty('name')) {  // has prop
-        return false;
+        return callback( {checkValue: false} );
       }
 
       let returnName = returnBody.name.split(" ").join("").toLocaleLowerCase();
@@ -41,7 +41,7 @@ module.exports = {
       // console.log("clean return name: ", cleanReturnName);
 
       let userInputCompare = stringSimilarity.compareTwoStrings(userSearchInput, cleanReturnName);
-      // console.log(userInputCompare);
+      //console.log(userInputCompare);
 
       switch(true) {
         case (userInputCompare > 0.60):

@@ -1,7 +1,7 @@
 const checkCat = require("./checkCategory");
 
 
-checkCat.createCategory('north of brooklyn', (data) => {
+checkCat.createCategory('godfather', (data) => {
   console.log('RETURN Category: ', data);
 });
 
