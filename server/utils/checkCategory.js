@@ -67,13 +67,5 @@ module.exports = {
       }
     });
 
-
-    
-    // Category Evaluation
-
-
-
-    //return "finished";
-
   }
 }
