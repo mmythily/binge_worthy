@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <script type="text/javascript" src="/scripts/newItem.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
@@ -19,13 +19,16 @@
     <div class="container-fluid">
 
         <!-- Search form -->
-        <div class="active-pink-3 active-pink-4 mb-4">
-            <h3>Add a ToDo:</h3>
+        
+            <h4>Add a ToDo:</h4>
             <form id="formToDo" action="/my-list" method="POST">
-                <textarea id="addToDo-text" name="text" placeholder="Add a new ToDo..."></textarea>
-                <input type="submit" form="formToDo" value="Add">
+                <div class="active-pink-3 active-pink-4 mb-4">
+                <textarea  id="addToDo-text" name="text" placeholder="Add a new item"></textarea>
+                </div>
+                <input  type="submit" form="formToDo" value="Add" >
+                        <%# class="form-control" aria-label="Search" %>
             </form>
-        </div>
+        
         
 
         <main class="row">
