@@ -7,7 +7,7 @@ const omdbQuery = require("./omdbQuery");
 //   console.log('RETURN Value: ', data);
 // });
 
-omdbQuery.searchMovie('godfther', (data) => {
+omdbQuery.searchMovie('godfather', (data) => {
   console.log('RETURN Value: ', data);
 }); 
 

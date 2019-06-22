@@ -6,6 +6,6 @@ const bookQueryApi = require("./bookHTTPQuery");
 // });
 
 
-bookQueryApi.bookQuery('harry+potter', (data) => {
+bookQueryApi.bookQuery('harry+ptter', (data) => {
   console.log('RETURN Value: ', data);
 }); 

@@ -23,8 +23,8 @@ module.exports = {
       //const prettyJson = JSON.stringify(firstResult, null, 4);
       //let returnBody = JSON.parse(prettyJson);
       let returnBody = firstResult;
-      console.log('RETURN BODY: ', returnBody);
-      console.log(typeof returnBody);
+      // console.log('RETURN BODY: ', returnBody);
+      // console.log(typeof returnBody);
 
       // Determine if yelp request has found a matched restaurant;
       if (typeof returnBody === 'undefined' || !returnBody.hasOwnProperty('name')) {  // has prop
@@ -37,19 +37,19 @@ module.exports = {
       //let userSearchArray = userSearchWord.split(" ");
       let userSearchInput = userListInput.split(" ").join("");
       
-      console.log('user input: ', userSearchInput);
-      console.log("clean return name: ", cleanReturnName);
+      // console.log('user input: ', userSearchInput);
+      // console.log("clean return name: ", cleanReturnName);
 
       let userInputCompare = stringSimilarity.compareTwoStrings(userSearchInput, cleanReturnName);
-      console.log(userInputCompare);
+      // console.log(userInputCompare);
 
       switch(true) {
         case (userInputCompare > 0.60):
-          console.log(true);
+          // console.log(true);
           callback( {compareRating: userInputCompare, checkValue: true, returnName: returnBody.name} );
           break;
         default:
-          console.log(false);
+          // console.log(false);
           callback( {compareRating: userInputCompare, checkValue: false} );
       }
 
