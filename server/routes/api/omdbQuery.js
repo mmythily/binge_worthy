@@ -8,11 +8,11 @@ module.exports = {
         omdb.search({
             search: userListInput
         }).then(res => {
-            console.log(res[0].title);
-            callback(true);
+            // console.log(res[0].title);
+            callback( {checkValue: true, returnName: res[0].title} );
         }).catch((err) => {
-            console.log(err);
-            callback(false);
+            // console.log(err);
+            callback( {checkValue: false} );
         })
         //returnValue: true
 

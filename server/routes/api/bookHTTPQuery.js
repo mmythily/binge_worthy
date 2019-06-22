@@ -20,8 +20,11 @@ module.exports = {
       for (let bookObj of booksArray){
         titles.push(bookObj.volumeInfo.title);
       }
-      //console.log(titles);
-      callback(titles);
+      if (titles.length > 0) {
+        callback( {checkValue: true, title: titles[0]} )
+      } else {
+       callback( {checkValue: false} )
+      }
     }
 
     let chunks = [];
