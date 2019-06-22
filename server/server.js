@@ -48,6 +48,26 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+// Register page
+app.get("/register", (reg, res) => {
+  res.render("register");
+})
+
+// Register post
+app.post("/register", (req, res) => {
+  if (req.body.email === "" || req.body.password === "") {
+    res.status(400).send('Please submit a valid username and password');
+  }
+  console.log(req.body.email, req.body.password);
+
+  // Add verification for database
+  //Once user information entered return id from data base
+  // and use that as cookie id
+
+  // Send cookie and redirect 
+  
+})
+
 
 // Get main page
 app.get("/my-list", (req, res) => {
