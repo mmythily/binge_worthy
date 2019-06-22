@@ -16,6 +16,7 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
+const checkCat = require("./utils/checkCategory.js");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -78,8 +79,12 @@ app.get("/my-list", (req, res) => {
 app.post("/my-list", (req, res) => {
   let userInput = req.body.userInput
   console.log(userInput);
-  ;  
-  res.render("my-list");
+  checkCat.createCategory(userInput, (data) => {
+    console.log(data);
+    res.json({category: data})
+  });
+  
+  //res.render("my-list");
 });
 
 app.listen(PORT, () => {
