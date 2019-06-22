@@ -62,19 +62,10 @@ module.exports = {
         return callback("Movie");
       } else if (isBook === true) {
         return callback("Book");
+      } else {
+        return callback("Buy?");
       }
-
     });
-
-
-    
-
-
-
-
-
-
-
 
 
     
