@@ -5,10 +5,14 @@ function escape(str) {
 }
 
 function renderList(userInput) {
-  let $newListItem = $('<li>').text(userInput);
+  //let $newListItem = $('<li>').text(userInput);
+  let $newListItem = 
+      `<article class='card to-read-item'>
+        ${userInput}
+      </article>`
 
   //TODO - remove this temp list once new item adding to category
-  let $temporaryList = $('<ul>').append($newListItem);
-  $('body').append($temporaryList);
+  let $temporaryList = $('<span>').append($newListItem);
+  $('#to-read').append($temporaryList);
   
 }
