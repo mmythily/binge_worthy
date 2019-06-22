@@ -15,64 +15,39 @@ module.exports = {
 
 
     function checkBookTitles(booksArray) {
-      console.log(booksArray);
+
 
       for (let bookObj of booksArray){
         titles.push(bookObj.volumeInfo.title);
       }
-      console.log(titles);
+      //console.log(titles);
       callback(titles);
     }
 
+    let chunks = [];
+    let returnString;
 
-    const options = {
-      hostname: url2,
-      port: 443,
-      path: '/',
-      method: 'GET'
-    };
-    
     https.get(url, (res) => {
-      //console.log('statusCode:', res.statusCode);
-      //console.log('headers:', res.headers);
-      //console.log(res.body);
-      let rawData = "";
       
-    res.on('data', (d) => {
-      rawData += process.stdout.write(d);
-      console.log("RAW: ", rawData);
-      
-      // let dataObject = JSON.parse(data);
-      // console.log("OBJECT: ", dataObject.items)
-      // //checkBookTitles(data.items);
-    
-    });
-    res.on('end', () => {
-      console.log(rawData);
+      res.setEncoding('utf8');
+
+      res.on('data', (chunk) => {
+        chunks.push(chunk);
+      });
+
+      res.on('end', () => {
+        returnString = chunks.join("");
+        //callback(returnString);
+        let returnObject = JSON.parse(returnString);
+        //console.log(returnObject.items);
+        checkBookTitles(returnObject.items);
+      })
+
+
     })
-    }).on('error', (e) => {
-      console.error(e);
-    });
 
 
-    // request
-    //   .get(url2)
-    //   .on('response', function(err, response, body) {
-    //     console.log('ERROR: ', err)
-    //     console.log(body);
-    //     // console.log(response.statusCode) // 200
-    //     // console.log(response.body);
-    //     //console.log(response.headers['content-type']) // 'image/png'
-    //     //checkBookTitles(response);
-    //   });
-    //   //.pipe(request.put('http://mysite.com/img.png'));
-
-
-
-
-    
+   
 
   }
-
-
 }

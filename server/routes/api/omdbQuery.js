@@ -3,10 +3,18 @@
 const omdb = new (require('omdbapi'))('9d1e34f3');
 
 module.exports = {
-    returnName: omdb.search({
-                search: name
-            }).then(res => {
-                console.log(res[0].title);
-            }).catch(console.error),
-    returnValue: true
+
+    searchMovie: (userListInput, callback) => {
+        omdb.search({
+            search: userListInput
+        }).then(res => {
+            console.log(res[0].title);
+            callback(true);
+        }).catch((err) => {
+            console.log(err);
+            callback(false);
+        })
+        //returnValue: true
+
+    }
 }
