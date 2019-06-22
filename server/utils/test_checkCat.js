@@ -1,7 +1,7 @@
 const checkCat = require("./checkCategory");
 
 
-checkCat.createCategory('odfather', (data) => {
+checkCat.createCategory('godfather', (data) => {
   console.log('RETURN Category: ', data);
 });
 
