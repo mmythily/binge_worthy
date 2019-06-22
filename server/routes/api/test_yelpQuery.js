@@ -2,9 +2,9 @@
 const bookQueryApi = require("./bookHTTPQuery");
 const yelpCall = require("./yelpQuery")
 
-yelpCall.yelpQuery('north of brooklyn', (data) => {
-  console.log('RETURN Value: ', data);
-  console.log(data.checkValue);
+yelpCall.yelpQuery('north of brooklyn', (res,data) => {
+  console.log('RETURN Value: ', res.name);
+  //console.log(data.checkValue);
 });
 
 

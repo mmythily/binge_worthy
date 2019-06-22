@@ -2,47 +2,35 @@ const yelpQuery = require("../routes/api/yelpQuery");
 const bookQuery = require("../routes/api/bookHTTPQuery");
 const omdbQuery = require("../routes/api/omdbQuery");
 
-module.exports = {
+// module.exports = {
 
-  createCategory: (userInput) => {
+  const createCategory = (userInput, ) => {
 
     let isMovie = false;
     let isBook = false;
     let isFood = false;
     
-    resultArray = [];
-    let yelpResult;
+    //resultArray = [];
+    // let yelpResult;
 
-    // yelpQuery: () => 
     yelpQuery.yelpQuery(userInput, (data) => {
-      console.log('RETURN YelpValue: ', data);
-      isFood = data.checkValue;
-      console.log(isFood);
+      // console.log('RETURN YelpValue: ', data);
+      // isFood = data.checkValue;
+      // console.log(isFood);
     });
+    is
 
     omdbQuery.searchMovie(userInput, (data) => {
-      console.log('RETURN omdbValue: ', data);
-      isMovie = data.checkValue;
-      console.log(isMovie);         
+      //console.log(isMovie);
     })
+    isMovie = true;
 
     bookQuery.bookQuery(userInput, (data) => {
-      console.log('RETURN bookValue: ', data);
-      isBook = data.checkValue;
-      console.log(isBook);
+      console.log('Return Book: ', data[0]);
+      // isBook = data.checkValue;
+      // console.log(isBook);
     })
-
-
-
-
-
-
-    
-    // Category Evaluation
-
-
-
-    //return "finished";
-
+    isBook = true;
   }
-}
+
+console.log(createCategory('harry potter'));

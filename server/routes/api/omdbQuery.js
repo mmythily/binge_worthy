@@ -8,7 +8,7 @@ module.exports = {
         omdb.search({
             search: userListInput
         }).then(res => {
-            console.log(res[0].title);
+            console.log(res[0].title) ;
             callback(true);
         }).catch((err) => {
             console.log(err);
