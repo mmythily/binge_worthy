@@ -11,12 +11,11 @@ function renderList(userInput, category) {
   let $newListItem = 
       `<article class='card ${category}-item'>
         ${userInput}
-        <footer>
-          
-        </footer>
+        <i class="fa fa-trash"></i>
       </article>`
 
   //TODO - remove this temp list once new item adding to category
   let $item = $('<span>').append($newListItem);
   $(`#${category}`).append($item);
 }
+s
