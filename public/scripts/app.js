@@ -2,6 +2,18 @@
 /* Client-side logic */
 
 $(document).ready(() => {
+  
+  $("button").click( (event) => {
+    //event.preventDefault();
+    console.log("button clicked");
+  });
+
+  $("#buttonSubmit").submit( (event) => {
+    //event.preventDefault();
+    console.log("submit clicked");
+  });
+
+
   //console.log($.cookie('user_id'));
       $.ajax({
         method: 'GET',
@@ -12,6 +24,7 @@ $(document).ready(() => {
           for (let item of data){
             let todo = item.item;
             let cat = item.category;
+            let entryId = item.id;
               // Catch original input seeds
               if (cat === 'Restaurant') {
                 cat = 'to-eat';
@@ -20,7 +33,8 @@ $(document).ready(() => {
               } else if (cat === 'Book') {
                 cat = 'to-read';
               }
-              renderList(todo, cat);           
+              // userInput, Category, item_id
+              renderList(todo, cat, item.id);           
             
           }
           
@@ -40,11 +54,19 @@ $(document).ready(() => {
         userInput: escapedInput
       },
       success: (result) => {
-        renderList(escapedInput, result.category);
+        // userInput, Category, item_id
+        renderList(escapedInput, result.category, result.entryID);
         $('#formToDo').trigger('reset');
       }
     });
   });
+
+  
+
+
+
+
+
 });
 
 

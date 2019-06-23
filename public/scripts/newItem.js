@@ -5,17 +5,25 @@ function escape(str) {
   return div.innerHTML;
 }
 
-function renderList(userInput, category) {
+function renderList(userInput, category, itemId) {
   
   //let $newListItem = $('<li>').text(userInput);
   let $newListItem = 
       `<article class='card ${category}-item'>
         ${userInput}
-        <footer>
-          
-        </footer>
-      </article>`
+        
 
+
+
+        <button class="buttonDelete" id="${itemId}">Delete</button>
+        <input id="buttonSubmit" type="submit" value="Submit">
+          
+          
+          
+        
+        </article>`
+        
+        //<i class="fa fa-trash"></i>
   //TODO - remove this temp list once new item adding to category
   let $item = $('<span>').append($newListItem);
   $(`#${category}`).append($item);
