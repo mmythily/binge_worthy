@@ -29,14 +29,11 @@
 
 /* Cards in a row */
 .card {
-  height: 100px;
+  width: 100%;
+  display: inline-table;
   word-wrap: none;
   position: inherit;
-  display: block;
   padding: 8px 10px;
   margin: 5px;
-}
-
-.checkCat {
-  
+  z-index: -1; 
 }

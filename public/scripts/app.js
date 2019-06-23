@@ -1,4 +1,6 @@
+
 /* Client-side logic */
+
 $(document).ready(() => {
   $('#formToDo').submit(ev => {
     ev.preventDefault();
@@ -18,3 +20,5 @@ $(document).ready(() => {
     });
   });
 });
+
+
