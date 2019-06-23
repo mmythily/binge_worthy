@@ -12,6 +12,7 @@ $(document).ready(() => {
           for (let item of data){
             let todo = item.item;
             let cat = item.category;
+              // Catch original input seeds
               if (cat === 'Restaurant') {
                 cat = 'to-eat';
               } else if (cat === 'Movie') {
