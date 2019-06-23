@@ -29,12 +29,13 @@
 
 /* Cards in a row */
 .card {
-  height: 100px;
+  width: 100%;
   word-wrap: none;
   position: inherit;
-  display: block;
+  display: inline-table;
   padding: 8px 10px;
   margin: 5px;
+  z-index: -1; 
 }
 
 .checkCat {
