@@ -153,13 +153,16 @@ console.log(req.params);
 
 
 // Get user specific page
-app.get("/my-list/:user", (req, res) => {
+app.get("/my-list/entries", (req, res) => {
   console.log(req.params);
   
+  let user_id = req.cookies.user_id; // cookie-something?
+
+
   knex
   .select('id', 'item', 'category')
   .from('lists')
-  .where('user_id', 2)
+  .where('user_id', user_id)
   .then((rows) => {
     let items = [];
     for (let row of rows) {
