@@ -16,17 +16,20 @@ const knexLogger  = require('knex-logger');
 
 // ac
 const checkPassword = require("./utils/checkPassword");
-const cookieSession = require('cookie-session');
+//const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
 
-app.set('trust proxy', 1) // trust first proxy
+//app.set('trust proxy', 1) // trust first proxy cookie-session
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['moviekey', 'foodkey'],
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['moviekey', 'foodkey'],
   
-  // Cookie Options
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
+//   // Cookie Options
+//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
+// }))
+
+app.use(cookieParser());
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -81,7 +84,9 @@ app.post("/login", (req, res) => {
       console.log('authValue: ', userAuth.authValue);
 
       if (userAuth.authValue === true) {
-        req.session.user_id = userAuth.id;
+        
+        //req.session.user_id = userAuth.id;  // cookie-parser
+        res.cookie('user_id', userAuth.userId);
         //res.render("my-list"); // This not working
 
         res.render('my-list');
