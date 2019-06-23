@@ -3,9 +3,42 @@
 
 $(document).ready(() => {
   
-  $("button").click( (event) => {
+
+ 
+  $("section").on('click', 'button', (event) => {
     //event.preventDefault();
-    console.log("button clicked");
+    console.log(event.currentTarget);
+    console.log(event.delegateTarget);
+
+    //console.log($(elementItem).attr('id'));
+    let elementItem =  event.currentTarget;
+    let itemId = $(elementItem).attr('id');
+    
+    $.ajax({
+      method: 'POST',
+      url: '/my-list/item/delete',
+      data: {
+        entryId: itemId
+      },
+      success: (response) => {
+        $(`#article${itemId}`).remove();
+      }
+    });
+     
+
+
+
+    // knex('lists')
+    //   .where('id', itemId)
+    //   .del()
+    //   .then ( () => {
+    //     $(`#article${itemId}`).remove();
+    //   })
+      
+
+    
+
+
   });
 
   $("#buttonSubmit").submit( (event) => {

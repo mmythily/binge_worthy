@@ -205,6 +205,20 @@ app.post("/my-list", (req, res) => {
 });
 
 
+app.post("/my-list/item/delete", (req, res) => {
+  let itemId = req.body.entryId;
+  console.log(itemId);
+
+  knex('lists')
+    .where('id', itemId)
+    .del()
+    .then ( () => {
+      res.render('my-list');
+    })
+
+
+})
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

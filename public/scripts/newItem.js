@@ -9,14 +9,14 @@ function renderList(userInput, category, itemId) {
   
   //let $newListItem = $('<li>').text(userInput);
   let $newListItem = 
-      `<article class='card ${category}-item'>
+      `<article id='article${itemId}' class='card ${category}-item'>
         ${userInput}
         
 
 
-
+       
         <button class="buttonDelete" id="${itemId}">Delete</button>
-        <input id="buttonSubmit" type="submit" value="Submit">
+       
           
           
           
