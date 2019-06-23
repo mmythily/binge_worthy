@@ -77,7 +77,8 @@ app.post("/login", (req, res) => {
 
       if (userAuth.authValue === true) {
         req.session.user_id = userAuth.id;
-        res.redirect("/my-list");
+        //res.render("my-list"); // This not working
+        res.send("you're logged in");
       } else {
         res.send('incorrect username and password');
       }
