@@ -30,7 +30,7 @@ app.use(cookieSession({
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-const checkCat = require("./utils/checkCategory.js");
+const usersItems = require("./routes/items");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -52,20 +52,28 @@ app.use(express.static("public"));
 
 
 // Mount all resource routes
+app.use("/user/list", usersItems(knex));
 app.use("/api/users", usersRoutes(knex));
 
-
-// Home page
-app.get("/", (req, res) => {
-  res.render("index");
+// Get main page
+app.get("/my-list", (req, res) => {
+  let items = [];
+    knex
+      .select('*')
+      .from('lists')
+      .where('user_id', 2)
+      .then((items) => {
+        for (let item of items) {
+          items.push(item);
+        }
+      })
+  res.render("my-list", items);
 });
-
 
 // Login page
 app.get("/login", (req, res) => {
   res.render("login");
 });
-
 
 // Login post - ac
 app.post("/login", (req, res) => {
@@ -103,7 +111,6 @@ app.get("/register", (reg, res) => {
   res.render("register");
 })
 
-
 // Register post
 app.post("/register", (req, res) => {
   let inputEmail = req.body.email;
@@ -139,30 +146,14 @@ app.post("/register", (req, res) => {
   })
 });
 
-// Get main page
-app.get("/my-list", (req, res) => {
-console.log(req.params);
-  res.render("my-list");
-});
 
 
 
 // Get user specific page
-app.get("/my-list/:user", (req, res) => {
-  console.log(req.params);
-  
-  knex
-  .select('id', 'item', 'category')
-  .from('lists')
-  .where('user_id', 2)
-  .then((rows) => {
-    let items = [];
-    for (let row of rows) {
-      items.push(rows[row]);
-    }
-    res.json(rows);
-  })
-});
+// app.get("/user/list", (req, res) => {
+//   res.render("my-list");
+
+// });
 
 
 // userInput
