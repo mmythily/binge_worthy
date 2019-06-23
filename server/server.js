@@ -14,6 +14,20 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+// ac
+const checkPassword = require("./utils/checkPassword");
+const cookieSession = require('cookie-session');
+
+app.set('trust proxy', 1) // trust first proxy
+ 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['moviekey', 'foodkey'],
+  
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const checkCat = require("./utils/checkCategory.js");
@@ -48,6 +62,40 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login");
 });
+
+// Login post - ac
+app.post("/login", (req, res) => {
+  if (req.body.email === "" || req.body.password === "") {
+    res.status(400).send('Please submit a valid username and password');
+  } else {
+    console.log(req.body);
+    let email = req.body.email;
+    let inputPassword = req.body.password;
+  
+    // (email, inputPassword, callback)
+    checkPassword.authenticateLogin(email, inputPassword, (userAuth) => {
+      console.log('authValue: ', userAuth.authValue);
+
+      if (userAuth.authValue === true) {
+        req.session.user_id = userAuth.id;
+        //res.render("my-list"); // This not working
+        res.send("you're logged in");
+      } else {
+        res.send('incorrect username and password');
+      }
+
+    })
+  }
+
+  // Success: req.session.user_id = user.id
+  // Redirect
+
+});
+    
+
+
+
+  
 
 // Register page
 app.get("/register", (reg, res) => {
