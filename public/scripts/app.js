@@ -1,4 +1,5 @@
-/* Client-side logic */
+
+// /* Client-side logic */
 $(() => {
   $.ajax({
     method: "GET",
@@ -22,10 +23,12 @@ $(document).ready(() => {
       data: {
         userInput: escapedInput
       },
-      success: () => {
-        renderList(escapedInput);
+      success: (result) => {
+        renderList(escapedInput, result.category);
         $('#formToDo').trigger('reset');
       }
     });
   });
 });
+
+

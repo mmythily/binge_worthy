@@ -43,37 +43,28 @@ module.exports = {
 
 
     yelpApiPull.then(function(valueYelp) {
-      console.log('Yelp: ', valueYelp);
+      //console.log('Yelp: ', valueYelp);
       isFood = valueYelp;
     }).then( () => {
       omdbQueryApiPull.then(function(valueOMDB) {
-        console.log('OMDB: ', valueOMDB);
+        //console.log('OMDB: ', valueOMDB);
         isMovie = valueOMDB;
       })
     }).then ( () => {
       bookQueryApiPull.then(function(valueBook) {
-        console.log('Book Value: ', valueBook);
+        //console.log('Book Value: ', valueBook);
         isBook = valueBook;
       })
     }).then ( () => {
       if (isFood === true) {
-        return callback("Restaurant");
+        return callback("to-eat");
       } else if (isMovie === true) {
-        return callback("Movie");
+        return callback("to-watch");
       } else if (isBook === true) {
-        return callback("Book");
+        return callback("to-read");
       } else {
-        return callback("Buy?");
+        return callback("to-buy");
       }
     });
-
-
-    
-    // Category Evaluation
-
-
-
-    //return "finished";
-
   }
 }
