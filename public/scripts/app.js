@@ -2,7 +2,7 @@
 /* Client-side logic */
 
 $(document).ready(() => {
-
+  //console.log($.cookie('session.sig'));
       $.ajax({
         method: 'GET',
         url: '/my-list/2',

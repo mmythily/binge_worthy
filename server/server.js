@@ -84,7 +84,7 @@ app.post("/login", (req, res) => {
         req.session.user_id = userAuth.id;
         //res.render("my-list"); // This not working
 
-        res.render(`/my-list/:${2}`);
+        res.render('my-list');
       } else {
         res.send('incorrect username and password');
       }
