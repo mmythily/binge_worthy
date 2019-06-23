@@ -175,10 +175,29 @@ app.get("/my-list/entries", (req, res) => {
 
 // userInput
 app.post("/my-list", (req, res) => {
-  let userInput = req.body.userInput
-  console.log(userInput);
+  let cookieUser_id = req.cookies.user_id; // Getting cooking with c-parser
+  let userInput = req.body.userInput;
+
   checkCat.createCategory(userInput, (data) => {
-    console.log(data);
+    // Knex insert request  
+    knex
+      .insert({
+        user_id: cookieUser_id,
+        item: userInput,
+        category: data
+      })
+      .into('lists')
+      .then( (result) => {
+        console.log(result.rows);
+        console.log(result.fields);
+        
+        console.log(result[0]);
+        console.log(result.rows[0]);
+      }); 
+
+    
+
+
     res.json({category: data})
   });
   
