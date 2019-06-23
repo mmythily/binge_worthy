@@ -16,6 +16,7 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
+const addNewUser = require("./routes/checkRegister");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -55,18 +56,32 @@ app.get("/register", (reg, res) => {
 
 // Register post
 app.post("/register", (req, res) => {
-  if (req.body.email === "" || req.body.password === "") {
-    res.status(400).send('Please submit a valid username and password');
+  let inputEmail = req.body.email;
+  let inputPassword = req.body.password;
+
+  //if email or password are empty
+  if (!inputEmail) {
+    res.status(400).send('Invalid email.'); 
   }
-  console.log(req.body.email, req.body.password);
-
-  // Add verification for database
-  //Once user information entered return id from data base
-  // and use that as cookie id
-
-  // Send cookie and redirect 
-  
-})
+  if (!inputPassword) {
+    res.status(400).send('Invalid password.'); 
+  }
+  //check if email already in db, then add if not
+  knex
+    .select('email', 'id')
+    .from('users')
+    .where('email', inputEmail)
+    .then((result) => {
+      if (result.length > 0){
+        console.log('User exists already ', result);
+        res.status(400).send('A user with this email already exists.')        
+      } else {
+        console.log('User can be registered');
+        addNewUser(knex, inputEmail, inputPassword);
+        res.status(200).send('Great you can be registered! Wish I could register you .')
+      }      
+    })
+});
 
 
 // Get main page

@@ -1,16 +1,25 @@
 /* Client-side logic */
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-    }
-  });
-});
-
 $(document).ready(() => {
+
+  // $('#registerForm').submit(ev => {
+  //   ev.preventDefault();
+  //   console.log(ev);
+
+  //   $(() => {
+  //     $.ajax({
+  //       method: "GET",
+  //       url: "/api/registerUser"
+  //     }).done(emails => {
+  //       console.log(emails);
+        
+  //         // checkIfUserExists(users, (userData) => {
+  //         //   console.log(userData);            
+  //         // });
+  //     });
+  //   });
+  // });
+
+
   $('#formToDo').submit(ev => {
     ev.preventDefault();
     let newItem = $('#addToDo-text').val();
@@ -28,4 +37,5 @@ $(document).ready(() => {
       }
     });
   });
+
 });
