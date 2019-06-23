@@ -50,18 +50,22 @@ app.use("../styles", sass({
 }));
 app.use(express.static("public"));
 
+
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+
 // Login page
 app.get("/login", (req, res) => {
   res.render("login");
 });
+
 
 // Login post - ac
 app.post("/login", (req, res) => {
@@ -93,35 +97,53 @@ app.post("/login", (req, res) => {
 });
     
 
-
-
-  
-
 // Register page
 app.get("/register", (reg, res) => {
   res.render("register");
 })
 
+
 // Register post
 app.post("/register", (req, res) => {
-  if (req.body.email === "" || req.body.password === "") {
-    res.status(400).send('Please submit a valid username and password');
-  }
-  console.log(req.body.email, req.body.password);
+  let inputEmail = req.body.email;
+  let inputPassword = req.body.password;
 
-  // Add verification for database
-  //Once user information entered return id from data base
-  // and use that as cookie id
+  //if email or password are empty
+  if (!inputEmail) {res.status(400).send('Invalid email.');}
+  if (!inputPassword) {res.status(400).send('Invalid password.');}
 
-  // Send cookie and redirect 
-  
-})
+  //check if email already in db, add if not:
+  knex
+  .select('email', 'id')
+  .from('users')
+  .where('email', inputEmail)
+  .then((result) => {
+    if (result.length > 0){
+      res.status(400).send('A user with this email already exists.')        
+    } else {
+      knex
+      .insert({
+        name: 'dummyName',
+        email: inputEmail,
+        password: inputPassword
+      })
+      .into('users')
+      .then((result) => {
+        res.render('my-list');
+      })
+      .catch((err) => {
+        res.status(500).send('Sorry, something went wrong. Please try again.')
+      })
+    }      
+  })
+});
 
 
 // Get main page
 app.get("/my-list", (req, res) => {
   res.render("my-list");
 });
+
 
 // userInput
 app.post("/my-list", (req, res) => {
@@ -134,6 +156,7 @@ app.post("/my-list", (req, res) => {
   
   //res.render("my-list");
 });
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
