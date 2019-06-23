@@ -19,7 +19,7 @@ const checkPassword = require("./utils/checkPassword");
 const cookieSession = require('cookie-session');
 
 app.set('trust proxy', 1) // trust first proxy
- 
+
 app.use(cookieSession({
   name: 'session',
   keys: ['moviekey', 'foodkey'],
@@ -83,7 +83,8 @@ app.post("/login", (req, res) => {
       if (userAuth.authValue === true) {
         req.session.user_id = userAuth.id;
         //res.render("my-list"); // This not working
-        res.send("you're logged in");
+
+        res.render(`/my-list/:${2}`);
       } else {
         res.send('incorrect username and password');
       }
@@ -138,10 +139,29 @@ app.post("/register", (req, res) => {
   })
 });
 
-
 // Get main page
 app.get("/my-list", (req, res) => {
+console.log(req.params);
   res.render("my-list");
+});
+
+
+
+// Get user specific page
+app.get("/my-list/:user", (req, res) => {
+  console.log(req.params);
+  
+  knex
+  .select('id', 'item', 'category')
+  .from('lists')
+  .where('user_id', 2)
+  .then((rows) => {
+    let items = [];
+    for (let row of rows) {
+      items.push(rows[row]);
+    }
+    res.json(rows);
+  })
 });
 
 

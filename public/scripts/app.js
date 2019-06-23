@@ -2,6 +2,31 @@
 /* Client-side logic */
 
 $(document).ready(() => {
+
+      $.ajax({
+        method: 'GET',
+        url: '/my-list/2',
+        success: (data) => {
+          console.log(data);
+          
+          for (let item of data){
+            let todo = item.item;
+            let cat = item.category;
+              if (cat === 'Restaurant') {
+                cat = 'to-eat';
+              } else if (cat === 'Movie') {
+                cat = 'to-watch';
+              } else if (cat === 'Book') {
+                cat = 'to-read';
+              }
+              renderList(todo, cat);           
+            
+          }
+          
+        }
+      });
+
+
   $('#formToDo').submit(ev => {
     ev.preventDefault();
     let newItem = $('#addToDo-text').val();
