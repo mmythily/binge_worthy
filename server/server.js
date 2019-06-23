@@ -16,7 +16,6 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-const addNewUser = require("./routes/checkRegister");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -36,23 +35,28 @@ app.use("../styles", sass({
 }));
 app.use(express.static("public"));
 
+
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+
 // Login page
 app.get("/login", (req, res) => {
   res.render("login");
 });
 
+
 // Register page
 app.get("/register", (reg, res) => {
   res.render("register");
 })
+
 
 // Register post
 app.post("/register", (req, res) => {
@@ -60,27 +64,33 @@ app.post("/register", (req, res) => {
   let inputPassword = req.body.password;
 
   //if email or password are empty
-  if (!inputEmail) {
-    res.status(400).send('Invalid email.'); 
-  }
-  if (!inputPassword) {
-    res.status(400).send('Invalid password.'); 
-  }
-  //check if email already in db, then add if not
+  if (!inputEmail) {res.status(400).send('Invalid email.');}
+  if (!inputPassword) {res.status(400).send('Invalid password.');}
+
+  //check if email already in db, add if not:
   knex
-    .select('email', 'id')
-    .from('users')
-    .where('email', inputEmail)
-    .then((result) => {
-      if (result.length > 0){
-        console.log('User exists already ', result);
-        res.status(400).send('A user with this email already exists.')        
-      } else {
-        console.log('User can be registered');
-        addNewUser(knex, inputEmail, inputPassword);
-        res.status(200).send('Great you can be registered! Wish I could register you .')
-      }      
-    })
+  .select('email', 'id')
+  .from('users')
+  .where('email', inputEmail)
+  .then((result) => {
+    if (result.length > 0){
+      res.status(400).send('A user with this email already exists.')        
+    } else {
+      knex
+      .insert({
+        name: 'dummyName',
+        email: inputEmail,
+        password: inputPassword
+      })
+      .into('users')
+      .then((result) => {
+        res.render('my-list');
+      })
+      .catch((err) => {
+        res.status(500).send('Sorry, something went wrong. Please try again.')
+      })
+    }      
+  })
 });
 
 
@@ -89,6 +99,7 @@ app.get("/my-list", (req, res) => {
   res.render("my-list");
 });
 
+
 // userInput
 app.post("/my-list", (req, res) => {
   let userInput = req.body.userInput
@@ -96,6 +107,7 @@ app.post("/my-list", (req, res) => {
   ;  
   res.render("my-list");
 });
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
