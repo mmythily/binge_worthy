@@ -2,10 +2,10 @@
 /* Client-side logic */
 
 $(document).ready(() => {
-
+  //console.log($.cookie('user_id'));
       $.ajax({
         method: 'GET',
-        url: '/my-list/2',
+        url: '/my-list/entries',
         success: (data) => {
           console.log(data);
           
