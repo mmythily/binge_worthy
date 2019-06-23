@@ -187,18 +187,18 @@ app.post("/my-list", (req, res) => {
         category: data
       })
       .into('lists')
-      .then( (result) => {
-        console.log(result.rows);
-        console.log(result.fields);
-        
-        console.log(result[0]);
-        console.log(result.rows[0]);
-      }); 
-
-    
-
-
-    res.json({category: data})
+      .then( () => {
+        knex('lists')
+          .where({
+            user_id: cookieUser_id,
+            item: userInput
+          }).select('id')
+        .then((itemID) => {
+        console.log(itemID[0].id);
+        let itemId = itemID[0].id;
+        res.json({category: data, entryID: itemId})
+        }) 
+      });
   });
   
   //res.render("my-list");

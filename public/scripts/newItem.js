@@ -11,6 +11,9 @@ function renderList(userInput, category) {
   let $newListItem = 
       `<article class='card ${category}-item'>
         ${userInput}
+        <footer>
+          
+        </footer>
       </article>`
 
   //TODO - remove this temp list once new item adding to category
