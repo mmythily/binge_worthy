@@ -210,7 +210,7 @@ app.post("/my-list/item/delete", (req, res) => {
 ////                      UPDATE
 ///////////////////////////////////////////////////////////////
 
-// Update ToDo category 
+// Update ToDo category - ac
 app.post("/update", (req, res) => {
   let itemId = req.body.entryId;
   let targetCategory = req.body.targetCategory;
