@@ -49,9 +49,14 @@ app.use("/api/users", usersRoutes(knex));
 ////                  BROWSE / READ
 ///////////////////////////////////////////////////////////////
 
+// Home page
+app.get("/", (req, res) => {
+  res.render("login");
+});
+
+
 // Get main page
 app.get("/my-list", (req, res) => {
-  console.log(req.params);
   res.render("my-list");
 });
 
@@ -138,7 +143,7 @@ app.post("/login", (req, res) => {
     checkPassword.authenticateLogin(email, inputPassword, (userAuth) => {
       if (userAuth.authValue === true) {
         res.cookie('user_id', userAuth.userId);
-        res.render('my-list');
+        res.redirect('/my-list');
       } else {
         res.send('incorrect username and password');
       }
@@ -196,7 +201,7 @@ app.post("/my-list/item/delete", (req, res) => {
   knex('lists')
     .where('id', itemId)
     .del()
-    .then ( () => {
+    .then( () => {
       res.render('my-list');
     })
 });
