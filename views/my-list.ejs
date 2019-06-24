@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <script type="text/javascript" src="/scripts/newItem.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <script>
+        function drop(ev) {
+            console.log(ev);
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            console.log(data);
+            ev.target.appendChild($('#article65'));
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            
+        }
+    </script>
+
+
+
 </head>
 
 <body>
@@ -33,25 +55,25 @@
         <main class="row">
 
             <%# To Watch Column %>
-            <section class='col-sm' id="to-watch">
+            <section class='col-sm' id="to-watch" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h1>To Watch</h1>
                 
             </section>
 
             <%# To Read Column %> 
-            <section class='col-sm' id="to-read">
+            <section class='col-sm' id="to-read" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h1>To Read</h1>
                 
             </section>
 
             <%# To Eat Column %> 
-            <section class='col-sm' id="to-eat">
+            <section class='col-sm' id="to-eat" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h1>To Eat</h1>
                 
             </section>
 
             <%# To Buy Column %>
-            <section class='col-sm' id="to-buy">
+            <section class='col-sm' id="to-buy" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <h1>To Buy</h1>
                 
             </section>

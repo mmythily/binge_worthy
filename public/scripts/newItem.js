@@ -9,7 +9,7 @@ function renderList(userInput, category, itemId) {
   
   //let $newListItem = $('<li>').text(userInput);
   let $newListItem = 
-      `<article id='article${itemId}' class='card ${category}-item'>
+      `<article id='article${itemId}' class='card ${category}-item' draggable="true" ondragover="allowDrop(event)">
         ${userInput}
         
 
