@@ -3,49 +3,35 @@
 
 $(document).ready(() => {
   
+  $('#updateCat').change(() => {
 
- 
+    let newCat = $("#updateCat option").val().change();
+      console.log(newCat);
+  });
+
   $("section").on('click', 'button', (event) => {
     //event.preventDefault();
-    console.log(event.currentTarget);
-    console.log(event.delegateTarget);
+    // console.log(event.currentTarget);
 
     //console.log($(elementItem).attr('id'));
     let elementItem =  event.currentTarget;
+    console.log(elementItem);
+    
     let itemId = $(elementItem).attr('id');
     
-    $.ajax({
-      method: 'POST',
-      url: '/my-list/item/delete',
-      data: {
-        entryId: itemId
-      },
-      success: (response) => {
-        $(`#article${itemId}`).remove();
-      }
-    });
-     
-
-
-
-    // knex('lists')
-    //   .where('id', itemId)
-    //   .del()
-    //   .then ( () => {
-    //     $(`#article${itemId}`).remove();
-    //   })
-      
-
-    
-
-
+    if ($(elementItem).hasClass('buttonDelete')) {
+      $.ajax({
+        method: 'POST',
+        url: '/my-list/item/delete',
+        data: {
+          entryId: itemId
+        },
+        success: (response) => {
+          $(`#article${itemId}`).remove();
+        }
+      });
+    }      
   });
-
-  $("#buttonSubmit").submit( (event) => {
-    //event.preventDefault();
-    console.log("submit clicked");
-  });
-
 
   //console.log($.cookie('user_id'));
       $.ajax({
@@ -93,12 +79,6 @@ $(document).ready(() => {
       }
     });
   });
-
-  
-
-
-
-
 
 });
 

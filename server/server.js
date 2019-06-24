@@ -215,8 +215,18 @@ app.post("/my-list/item/delete", (req, res) => {
     .then ( () => {
       res.render('my-list');
     })
+})
 
+app.post("/my-list/item/update", (req, res) => {
+  let updateCat = req.body.category;
+  console.log(updateCat);
 
+  // knex('lists')
+  //   .where('id', itemId)
+  //   .update()
+  //   .then(() => {
+  //     res.render('my-list');
+  //   })
 })
 
 app.listen(PORT, () => {
