@@ -3,15 +3,15 @@ textarea {
   width: 75%;
   border: 1px solid #f48fb1;
   box-shadow: 0 0 0 1px #f48fb1;
-  height: 100px;
+  height: 75px;
   font-size: 1.5em;
 }
 
 input#searchButton {
   width: 20%;
-  margin: -90px 0px 0px 0px;
-  height: 101px;
-  font-size: xx-large;
+  margin: -65px 0px 0px 0px;
+  height: 75px;
+  font-size: large;
 }
 
 /* The 4 main columns */
@@ -23,7 +23,10 @@ input#searchButton {
   height: 700px;
   margin: 5px;
   border-radius: 15px;
-
+  font-size: 1.25em;
+}
+.col-header {
+  font-size: 1.25em;
 }
 #to-watch {
   background-color: #bffcc6;
@@ -47,4 +50,9 @@ input#searchButton {
   padding: 8px 10px;
   margin: 5px;
   z-index: -1; 
+  font-size: .9em;
+
+  i {
+
+  }
 }

@@ -10,7 +10,7 @@ function renderList(userInput, category, itemId) {
   //let $newListItem = $('<li>').text(userInput);
   let $newListItem = 
       `<article id='article${itemId}' class='card ${category}-item'>
-        <h4> ${userInput}</h4>
+        <span> ${userInput}</span>
         <div class='btn-toolbar' role='toolbar'>
         <div class="btn-group mr-2" role="group">
           <button class="buttonDelete btn bt-sm btn-secondary" id="${itemId}"><i class="fa fa-trash"></i></button>
