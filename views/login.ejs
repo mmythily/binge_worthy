@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>Login</title>
-
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -17,11 +18,11 @@
     <nav id="nav-bar">
       <div>
         <i class="fas fa-pencil-alt fa-3x"></i>
-        <span class="header">smartCAT</span>
+        <span class="header">smartCAT <i class="fa fa-book" style="color: #dcd3ff"></i></span>
       </div>
       <div>
         <a href="/register">
-          <button class="compose-button">Sign Up</button>
+          <button class="btn btn-dark">Sign Up</button>
         </a>
       </div>
     </nav>
@@ -32,11 +33,11 @@
     <main class="container">
       <h1> Login </h1>
       <form action='/login' method='POST'>
-        <label for='email'> Email </label> <br>
-        <input id='email-input' type='email' name='email'> <br>
-        <label for='password'> Password </label><br>
-        <input id='password-input' type='password' name='password'> <br>
-        <button type='submit' class="btn btn-info"> Login </button>
+        <label for='email'> Email <i class="fa fa-user" style="color: #97a2ff"></i> </label> <br>
+        <input class='rounded' id='email-input' type='email' name='email'> <br>
+        <label for='password'> Password <i class="fa fa-lock" style="color: #97a2ff"></i> </label><br>
+        <input class='rounded' id='password-input' type='password' name='password'> <br>
+        <button type='submit' class="btn btn-dark"> Login </button>
       </form>
       <div id='login-error'></div>
     </main>

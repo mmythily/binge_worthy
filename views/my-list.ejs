@@ -20,39 +20,45 @@
 <body>
   <div class="container-fluid">
   <h1>Smart ToDo</h1>
-
-
-    <h4>Add a ToDo:</h4>
+  <div class='newItem'>
     <form id="formToDo" action="/my-list" method="POST">
-      <div class="active-pink-3 active-pink-4 mb-4">
-        <textarea id="addToDo-text" name="text" placeholder="Add a new item"></textarea>
+      
+      <div class="active-pink-3 active-pink-4">
+        <textarea class='rounded' id="addToDo-text" name="text" placeholder="...Add a ToDo..."></textarea>
       </div>
-      <input type="submit" form="formToDo" value="Add" >
+      <input class='rounded btn btn-dark' type="submit" form="formToDo" value="Add">
       <%# class="form-control" aria-label="Search" %>
     </form>
+  </div>
+
       
     <main class="row">
       <%# To Watch Column %>
       <section class='col-sm' id="to-watch">
-        <h1>To Watch</h1>
+        <h3>To Watch </h3>
+        <i class="fa fa-film"></i>
       </section>
       <%# To Read Column %> 
       <section class='col-sm' id="to-read">
-        <h1>To Read</h1>
+        <h3>To Read </h3>
+        <i class="fa fa-bookmark"></i>
       </section>
       <%# To Eat Column %> 
         <section class='col-sm' id="to-eat">
-          <h1>To Eat</h1>
+          <h3>To Eat </h3>
+          <i class="fa fa-cutlery"></i>
       </section>
       <%# To Buy Column %>
         <section class='col-sm' id="to-buy">
-          <h1>To Buy</h1>
+          <h3>To Buy </h3>
+          <i class="fa fa-shopping-cart"></i>
         </section>
     </main>
-
+  <footer id='mainFooter'>
+    Why memorize? Let us help you categorize!
+  </footer>
   </div>
 
-  <footer>
-  </footer>
+
 
 </body>

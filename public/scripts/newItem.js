@@ -10,17 +10,21 @@ function renderList(userInput, category, itemId) {
   //let $newListItem = $('<li>').text(userInput);
   let $newListItem = 
       `<article id='article${itemId}' class='card ${category}-item'>
-        ${userInput}
-          <button class="buttonDelete" id="${itemId}"><i class="fa fa-trash"></i></button>
-          <label>Change List: </label>
-          <select id="updateCat">
-            <option selected="selected">--</option>
-            <option value="to-watch">To Watch</option>
-            <option value="to-eat">To Eat</option>
-            <option value="to-read">To Read</option>
-            <option value="to-buy">To Buy</option>
+        <h4> ${userInput}</h4>
+        <div class='btn-toolbar' role='toolbar'>
+        <div class="btn-group mr-2" role="group">
+          <button class="buttonDelete btn bt-sm btn-secondary" id="${itemId}"><i class="fa fa-trash"></i></button>
+          <select class='btn btn-sm btn-secondary' id="updateCat">
+            <option selected="selected">move</option>
+            <option value="to-watch" >----</option>
+            <option value="to-watch">Watch</option>
+            <option value="to-eat">Eat</option>
+            <option value="to-read">Read</option>
+            <option value="to-buy">Buy</option>
           </select>
-        </article>`
+        </div>
+        </div>
+      </article>`
 
   let $item = $('<span>').append($newListItem);
   $(`#${category}`).append($item);
