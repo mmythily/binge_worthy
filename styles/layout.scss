@@ -1,10 +1,24 @@
 /* The Search Form */
-.active-pink-4 input[type=text]{
+textarea {
+  width: 75%;
   border: 1px solid #f48fb1;
   box-shadow: 0 0 0 1px #f48fb1;
   height: 100px;
   font-size: 2em;
 }
+
+input#searchButton {
+  width: 20%;
+  margin: -90px 0px 0px 0px;
+  height: 101px;
+  font-size: xx-large;
+}
+// .active-pink-4 input[type=text]{
+//   border: 1px solid #f48fb1;
+//   box-shadow: 0 0 0 1px #f48fb1;
+//   height: 100px;
+//   font-size: 2em;
+// }
 /* The 4 main columns */
 .container-fluid{
   border: 1px;
@@ -15,7 +29,7 @@
   border-radius: 15px;
 }
 #to-watch {
-  background-color: #ffbebc;
+  background-color: #bffcc6;
 }
 #to-read {
   background-color: #ace7ff;

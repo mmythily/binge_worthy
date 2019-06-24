@@ -23,10 +23,10 @@
   <div class='newItem'>
     <form id="formToDo" action="/my-list" method="POST">
       
-      <div class="active-pink-3 active-pink-4">
+      <span> 
         <textarea class='rounded' id="addToDo-text" name="text" placeholder="...Add a ToDo..."></textarea>
-      </div>
-      <input class='rounded btn btn-dark' type="submit" form="formToDo" value="Add">
+      </span>
+      <span><input id='searchButton' class='rounded btn btn-dark' type="submit" form="formToDo" value="Add"></span>
       <%# class="form-control" aria-label="Search" %>
     </form>
   </div>
