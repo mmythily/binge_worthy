@@ -1,39 +1,108 @@
+/* Global Styles*/
+body {
+  text-align: center;
+}
+
 /* The Search Form */
-.active-pink-4 input[type=text]{
+/* .active-pink-4 input[type=text] {
   border: 1px solid #f48fb1;
   box-shadow: 0 0 0 1px #f48fb1;
   height: 100px;
-  font-size: 2em;
+  font-size: 2em; } */
+
+textarea {
+  width: 75%;
+  border: 1px solid #f48fb1;
+  box-shadow: 0 0 0 1px #f48fb1;
+  height: 75px;
+  font-size: 1.5em;
 }
+input#searchButton {
+  width: 20%;
+  margin: -65px 0px 0px 0px;
+  height: 75px;
+  font-size: large;
+}
+
 /* The 4 main columns */
-.container-fluid{
-  border: 1px;
-}
+.container-fluid {
+  padding: 0;
+  border: 1px; }
+
 .col-sm {
-  height: 700px;
+  padding: 2%;
   margin: 3px;
-  border-radius: 15px;
+  border-radius: 15px; }
+
+/* .newItem {
+  display: flex;
+  justify-content: center;
+  text-align:center;
+  padding-top: 2%;
+} */
+
+div.newItem {
+  margin-top: 10px;
+  padding-top: 2%;
 }
+
 #to-watch {
-  background-color: #ffbebc;
-}
+  background-color: #ffbebc; }
+
 #to-read {
-  background-color: #ace7ff;
-}
+  background-color: #ace7ff; }
+
 #to-eat {
-  background-color: #dcd3ff;
-}
+  background-color: #dcd3ff; }
+
 #to-buy {
-  background-color: #97a2ff;
-}
+  background-color: #97a2ff; }
+
+  h3 {
+    border-bottom: 1px solid white;
+  }
+/* #addToDo-text {
+  border: 2px solid #dcd3ff;
+  box-shadow: 2px 2px grey;
+} */
 
 /* Cards in a row */
 .card {
+  color: black;
   width: 100%;
   display: inline-table;
-  word-wrap: none;
   position: inherit;
-  padding: 8px 10px;
-  margin: 5px;
-  z-index: 1; 
+  background-color: rgba(235, 226, 226, 0.8);
+  margin: 2% 0;
+}
+
+.row {
+  margin: 1% 2%;
+}
+
+.btn-toolbar {
+  line-height:1em;
+  justify-content:center;
+}
+.btn-secondary {
+  padding:0;
+  background-color: white;
+  color:grey;
+}
+
+
+
+#updateCat {
+  border-left:1px solid grey;
+}
+.buttonDelete.btn.bt-sm.btn-secondary {
+  padding: 0 3px;
+}
+
+#mainFooter {
+  background-color: grey;
+  color:white;
+  width: 100%;
+  padding: 2% 0;
+  margin-top: 2%;
 }
