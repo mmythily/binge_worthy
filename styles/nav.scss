@@ -6,31 +6,24 @@
     padding-right: 2rem;
     width: 100%;
     height: 80px;
-    background-color: #ffbebc;
-    color: #000000; 
-    display: flex; 
+    background-color: grey;
+    color: white;
+    display: flex;
     align-items: center;
     flex-direction: row;
     flex-flow: row wrap;
     justify-content: space-between;
-    z-index: 10;
-
-    div {
-        display: flex;
-        align-items: center;
-    }
-    .logo {
-        height: 80px;
-        width: 80px;   
-    }
-    .header {
-        padding-left: 10px;
-        font-size: 2em;
-    }
-    .compose-button {
-        margin-right: 10em;
-        padding: 12px;
-        border-radius: 4px;
-    }
-    
-}
+    z-index: 10; }
+    #nav-bar div {
+      display: flex;
+      align-items: center; }
+    #nav-bar .logo {
+      height: 80px;
+      width: 80px; }
+    #nav-bar .header {
+      padding-left: 10px;
+      font-size: 2em; }
+    #nav-bar .compose-button {
+      margin-right: 10em;
+      padding: 12px;
+      border-radius: 4px; }
