@@ -13,6 +13,34 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <script type="text/javascript" src="/scripts/newItem.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/updateCategory.js"></script>
+
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        //console.log(ev);
+        //console.log(ev.target.id);
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
+        //console.log('DATA: ', data);
+        //console.log('TARGET: ', ev.target);
+        article = document.getElementById(data);
+        ev.target.appendChild(document.getElementById(data));
+        console.log('TARGET: ', ev.target.id);
+        updateCategory(article, ev.target.id, (returnResponse) => {
+          console.log(returnResponse);
+        });
+      }
+
+    </script>
+
 </head>
 
   <% include partials/_header %>
@@ -34,22 +62,22 @@
       
     <main class="row">
       <%# To Watch Column %>
-      <section class='col-sm' id="to-watch">
+      <section class='col-sm' id="to-watch" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h3>To Watch </h3>
         <i class="fa fa-film"></i>
       </section>
       <%# To Read Column %> 
-      <section class='col-sm' id="to-read">
+      <section class='col-sm' id="to-read" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h3>To Read </h3>
         <i class="fa fa-bookmark"></i>
       </section>
       <%# To Eat Column %> 
-        <section class='col-sm' id="to-eat">
+        <section class='col-sm' id="to-eat" ondrop="drop(event)" ondragover="allowDrop(event)">
           <h3>To Eat </h3>
           <i class="fa fa-cutlery"></i>
       </section>
       <%# To Buy Column %>
-        <section class='col-sm' id="to-buy">
+        <section class='col-sm' id="to-buy" ondrop="drop(event)" ondragover="allowDrop(event)">
           <h3>To Buy </h3>
           <i class="fa fa-shopping-cart"></i>
         </section>

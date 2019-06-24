@@ -206,6 +206,29 @@ app.post("/my-list/item/delete", (req, res) => {
     })
 });
 
+////////////////////////////////////////////////////////////////
+////                      UPDATE
+///////////////////////////////////////////////////////////////
+
+// Update ToDo category - ac
+app.post("/update", (req, res) => {
+  let itemId = req.body.entryId;
+  let targetCategory = req.body.targetCategory;
+  console.log('SERVER: ', itemId, targetCategory);
+
+  knex('lists')
+    .where('id', '=', itemId)
+    .update({
+      category: targetCategory,
+    })
+    .then( () => {
+      console.log('update done');
+      res.status(200);
+    });
+    
+});
+
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
