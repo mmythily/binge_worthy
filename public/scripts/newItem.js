@@ -11,20 +11,17 @@ function renderList(userInput, category, itemId) {
   let $newListItem = 
       `<article id='article${itemId}' class='card ${category}-item'>
         ${userInput}
-        
-
-
-       
-        <button class="buttonDelete" id="${itemId}">Delete</button>
-       
-          
-          
-          
-        
+          <button class="buttonDelete" id="${itemId}"><i class="fa fa-trash"></i></button>
+          <label>Change List: </label>
+          <select id="updateCat">
+            <option selected="selected">--</option>
+            <option value="to-watch">To Watch</option>
+            <option value="to-eat">To Eat</option>
+            <option value="to-read">To Read</option>
+            <option value="to-buy">To Buy</option>
+          </select>
         </article>`
-        
-        //<i class="fa fa-trash"></i>
-  //TODO - remove this temp list once new item adding to category
+
   let $item = $('<span>').append($newListItem);
   $(`#${category}`).append($item);
 }
