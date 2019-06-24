@@ -15,46 +15,44 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
+  <% include partials/_header %>
+
 <body>
-    <h1>Smart Categorizr</h1>
-    <div class="container-fluid">
+  <div class="container-fluid">
+  <h1>Smart ToDo</h1>
 
-        <!-- Search form -->
-        
-            <h4>Add a ToDo:</h4>
-            <form id="formToDo" action="/my-list" method="POST">
-                <div class="active-pink-3 active-pink-4 mb-4">
-                <textarea id="addToDo-text" name="text" placeholder="Add a new item"></textarea>
-                </div>
-                <input type="submit" form="formToDo" value="Add" >
-                        <%# class="form-control" aria-label="Search" %>
-            </form>
-        
-        <main class="row">
 
-            <%# To Watch Column %>
-            <section class='col-sm' id="to-watch">
-                <h1>To Watch</h1>
-                
-            </section>
+    <h4>Add a ToDo:</h4>
+    <form id="formToDo" action="/my-list" method="POST">
+      <div class="active-pink-3 active-pink-4 mb-4">
+        <textarea id="addToDo-text" name="text" placeholder="Add a new item"></textarea>
+      </div>
+      <input type="submit" form="formToDo" value="Add" >
+      <%# class="form-control" aria-label="Search" %>
+    </form>
+      
+    <main class="row">
+      <%# To Watch Column %>
+      <section class='col-sm' id="to-watch">
+        <h1>To Watch</h1>
+      </section>
+      <%# To Read Column %> 
+      <section class='col-sm' id="to-read">
+        <h1>To Read</h1>
+      </section>
+      <%# To Eat Column %> 
+        <section class='col-sm' id="to-eat">
+          <h1>To Eat</h1>
+      </section>
+      <%# To Buy Column %>
+        <section class='col-sm' id="to-buy">
+          <h1>To Buy</h1>
+        </section>
+    </main>
 
-            <%# To Read Column %> 
-            <section class='col-sm' id="to-read">
-                <h1>To Read</h1>
-                
-            </section>
+  </div>
 
-            <%# To Eat Column %> 
-            <section class='col-sm' id="to-eat">
-                <h1>To Eat</h1>
-                
-            </section>
+  <footer>
+  </footer>
 
-            <%# To Buy Column %>
-            <section class='col-sm' id="to-buy">
-                <h1>To Buy</h1>
-                
-            </section>
-        </main>
-    </div>
 </body>

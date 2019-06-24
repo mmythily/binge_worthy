@@ -10,21 +10,35 @@
     <link rel="stylesheet" href="/styles/login_layout.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/login.js"></script>
+
   </head>
 
+  <header>
+    <nav id="nav-bar">
+      <div>
+        <i class="fas fa-pencil-alt fa-3x"></i>
+        <span class="header">smartCAT</span>
+      </div>
+      <div>
+        <a href="/register">
+          <button class="compose-button">Sign Up</button>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+
   <body>
-    <% include partials/_header %>
     <main class="container">
       <h1> Login </h1>
       <form action='/login' method='POST'>
-        <label for = 'email'> Email </label> <br>
-          <input id='email-input' type='email' name='email'> <br>
-          <label for = 'password'> Password </label><br>
-          <input id='password-input' type='password' name='password'> <br>
-          <button type='submit' class="btn btn-info"> Login </button>
-        </form>
-        <div id='login-error'></div>
+        <label for='email'> Email </label> <br>
+        <input id='email-input' type='email' name='email'> <br>
+        <label for='password'> Password </label><br>
+        <input id='password-input' type='password' name='password'> <br>
+        <button type='submit' class="btn btn-info"> Login </button>
+      </form>
+      <div id='login-error'></div>
     </main>
 
   </body>
