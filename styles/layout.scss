@@ -11,9 +11,8 @@ input#searchButton {
   width: 20%;
   margin: -65px 0px 0px 0px;
   height: 75px;
-  font-size: large;
+  font-size: large
 }
-
 /* The 4 main columns */
 .container-fluid{
   border: 1px;
@@ -26,7 +25,9 @@ input#searchButton {
   font-size: 1.25em;
 }
 .col-header {
-  font-size: 1.25em;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 #to-watch {
   background-color: #bffcc6;
@@ -51,8 +52,5 @@ input#searchButton {
   margin: 5px;
   z-index: -1; 
   font-size: .9em;
-
-  i {
-
-  }
+  border-color: burlywood;
 }
