@@ -4,7 +4,7 @@ textarea {
   border: 1px solid #f48fb1;
   box-shadow: 0 0 0 1px #f48fb1;
   height: 100px;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 input#searchButton {
@@ -13,20 +13,17 @@ input#searchButton {
   height: 101px;
   font-size: xx-large;
 }
-// .active-pink-4 input[type=text]{
-//   border: 1px solid #f48fb1;
-//   box-shadow: 0 0 0 1px #f48fb1;
-//   height: 100px;
-//   font-size: 2em;
-// }
+
 /* The 4 main columns */
 .container-fluid{
   border: 1px;
+  margin: 20px;
 }
 .col-sm {
   height: 700px;
-  margin: 3px;
+  margin: 5px;
   border-radius: 15px;
+
 }
 #to-watch {
   background-color: #bffcc6;
