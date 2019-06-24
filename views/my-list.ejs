@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <script type="text/javascript" src="/scripts/newItem.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/updateCategory.js"></script>
 
     <script>
       function allowDrop(ev) {
@@ -30,8 +31,12 @@
         let data = ev.dataTransfer.getData("text");
         //console.log('DATA: ', data);
         //console.log('TARGET: ', ev.target);
+        article = document.getElementById(data);
         ev.target.appendChild(document.getElementById(data));
-        //$('<span>').append(document.getElementById(data));
+        console.log('TARGET: ', ev.target.id);
+        updateCategory(article, ev.target.id, (returnResponse) => {
+          console.log(returnResponse);
+        });
       }
 
     </script>
